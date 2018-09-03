@@ -21,16 +21,47 @@ ___
 ___
 
 
-#### Example
+### Example
 
 * Java example (**Book**)
 
 ![UML diagram.](/uml/AdapterExample.jpg)
 
 
+___
 
-##### Credits
 
-[Book](https://en.wikipedia.org/wiki/Design_Patterns)
+### Usage
+
+```java
+Person person = new Person();
+		
+person.read(new Book("Book"));		// Use compatible classes
+person.turnPage();
+person.turnPage();
+		
+person.read(new EReaderAdapter(new Kindle("Kindle book"))); // Use incompatible classes and adapt them.
+person.turnPage();
+person.turnPage();
+person.turnPage();
+
+```
+### Output
+
+```
+Open the book : Book
+Book: go to the next page : 1
+Book: go to the next page : 2
+Turn on the kindle : Kindle book
+Kindle book: go to the next page : 1
+Kindle book: go to the next page : 2
+Kindle book: go to the next page : 3
+```
+
+___
+
+
+#### Credits 
+* [Book](https://en.wikipedia.org/wiki/Design_Patterns)
 
 
